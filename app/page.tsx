@@ -1,4 +1,5 @@
 const page = () => {
+  
   return (
     <>
       <h1 className="h1-bold">Welcome no Inter</h1>

@@ -5,6 +5,14 @@ import nextTs from "eslint-config-next/typescript";
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
+
+    {
+    rules: {
+      // pozwala tylko 1 pustą linię z rzędu
+      "no-multiple-empty-lines": ["error", { max: 1, maxEOF: 0 }],
+    },
+  },
+  
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:
