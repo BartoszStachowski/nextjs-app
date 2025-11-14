@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @plugin "@tailwindcss/typography";
 
@@ -30,8 +30,7 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
 
-  --shadow-light-100:
-    0px 12px 20px 0px rgba(184, 184, 184, 0.03),
+  --shadow-light-100: 0px 12px 20px 0px rgba(184, 184, 184, 0.03),
     0px 6px 12px 0px rgba(184, 184, 184, 0.02),
     0px 2px 4px 0px rgba(184, 184, 184, 0.03);
   --shadow-light-200: 10px 10px 20px 0px rgba(218, 213, 213, 0.1);
@@ -39,8 +38,8 @@
   --shadow-dark-100: 0px 2px 10px 0px rgba(46, 52, 56, 0.1);
   --shadow-dark-200: 2px 0px 20px 0px rgba(39, 36, 36, 0.04);
 
-  --background-image-auth-dark: url("/images/auth-dark.png");
-  --background-image-auth-light: url("/images/auth-light.png");
+  --background-image-auth-dark: url('/images/auth-dark.png');
+  --background-image-auth-light: url('/images/auth-light.png');
 
   --breakpoint-xs: 420px;
 
@@ -335,6 +334,8 @@
 @layer base {
   :root {
     --radius: 0.5rem;
+    --bg-auth-dark: url('/images/auth-dark.png');
+    --bg-auth-light: url('/images/auth-light.png');
   }
 
   body {
@@ -399,7 +400,7 @@
   color: #000 !important;
 }
 
-.dark .mdxeditor-toolbar [role="separator"] {
+.dark .mdxeditor-toolbar [role='separator'] {
   border-color: #555 !important;
 }
 
@@ -442,14 +443,14 @@ code {
   color: inherit !important;
 }
 
-[data-lexical-editor="true"] {
+[data-lexical-editor='true'] {
   height: 350px !important;
   overflow-y: auto !important;
 }
 
 /* NESTED CODE BLOCKS: Only apply grid to visible code blocks */
-[data-bright-mode="dark"]:not(html.light [data-bright-mode="dark"]),
-[data-bright-mode="light"]:not(:not(html.light [data-bright-mode="light"])) {
+[data-bright-mode='dark']:not(html.light [data-bright-mode='dark']),
+[data-bright-mode='light']:not(:not(html.light [data-bright-mode='light'])) {
   display: grid !important;
   width: 100% !important;
 }
