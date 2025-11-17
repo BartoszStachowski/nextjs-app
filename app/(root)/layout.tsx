@@ -13,6 +13,8 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
         <section className="flex flex-col flex-1 px-6 sm:px-14 pt-36 pb-6 max-md:pb-14 min-h-screen">
           <div className="mx-auto w-full max-w-5xl">{children}</div>
         </section>
+
+        <RightSidebar />
       </div>
     </main>
   );
