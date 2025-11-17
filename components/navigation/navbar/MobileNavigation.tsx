@@ -3,8 +3,6 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
-  SheetDescription,
-  SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
@@ -27,49 +25,47 @@ const MobileNavigation = () => {
       </SheetTrigger>
       <SheetContent
         side="left"
-        className="border-none background-light900_dark200"
+        className="p-5 border-none background-light900_dark200"
       >
-        <SheetHeader>
-          <SheetTitle className="hidden">Navigation</SheetTitle>
-          <Link href="/" className="flex items-center gap-1">
-            <Image
-              src="/images/site-logo.svg"
-              width={23}
-              height={23}
-              alt="Logo"
-            />
+        <SheetTitle className="hidden">Navigation</SheetTitle>
+        <Link href="/" className="flex items-center gap-1">
+          <Image
+            src="/images/site-logo.svg"
+            width={23}
+            height={23}
+            alt="Logo"
+          />
 
-            <p className="font-space-grotesk text-dark-100 dark:text-light-900 h2-bold">
-              Dev<span className="text-primary-500">Flow</span>
-            </p>
-          </Link>
+          <p className="font-space-grotesk text-dark-100 dark:text-light-900 h2-bold">
+            Dev<span className="text-primary-500">Flow</span>
+          </p>
+        </Link>
 
-          <div className="flex flex-col justify-between h-[calc(100vh-80px)] overflow-y-auto no-scrollbar">
+        <div className="flex flex-col justify-between h-[calc(100vh-80px)] overflow-y-auto no-scrollbar">
+          <SheetClose asChild>
+            <section className="flex flex-col gap-6 pt-16 h-full">
+              <NavLinks isMobileNav />
+            </section>
+          </SheetClose>
+
+          <div className="flex flex-col gap-3 mt-10">
             <SheetClose asChild>
-              <section className="flex flex-col gap-6 pt-16 h-full">
-                <NavLinks isMobileNav />
-              </section>
+              <Link href={ROUTES.SIGN_IN}>
+                <Button className="shadow-none px-4 py-3 rounded-lg w-full min-h-10 small-medium btn-secondary">
+                  <span className="primary-text-gradient">Log In</span>
+                </Button>
+              </Link>
             </SheetClose>
 
-            <div className="flex flex-col gap-3">
-              <SheetClose asChild>
-                <Link href={ROUTES.SIGN_IN}>
-                  <Button className="shadow-none px-4 py-3 rounded-lg w-full min-h-10 small-medium btn-secondary">
-                    <span className="primary-text-gradient">Log In</span>
-                  </Button>
-                </Link>
-              </SheetClose>
-
-              <SheetClose asChild>
-                <Link href={ROUTES.SIGN_UP}>
-                  <Button className="shadow-none px-4 py-3 border light-border-2 rounded-lg w-full min-h-10 text-dark400_light900 small-medium btn-tertiary">
-                    Sign Up
-                  </Button>
-                </Link>
-              </SheetClose>
-            </div>
+            <SheetClose asChild>
+              <Link href={ROUTES.SIGN_UP}>
+                <Button className="shadow-none px-4 py-3 border light-border-2 rounded-lg w-full min-h-10 text-dark400_light900 small-medium btn-tertiary">
+                  Sign Up
+                </Button>
+              </Link>
+            </SheetClose>
           </div>
-        </SheetHeader>
+        </div>
       </SheetContent>
     </Sheet>
   );
