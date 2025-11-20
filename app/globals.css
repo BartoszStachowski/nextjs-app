@@ -341,6 +341,11 @@
   body {
     font-family: var(--font-inter);
   }
+
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
 }
 
 .custom-scrollbar::-webkit-scrollbar {

@@ -1,7 +1,7 @@
+import HomeFiler from '@/components/filters/HomeFiler';
 import LocalSearch from '@/components/search/LocalSearch';
 import { Button } from '@/components/ui/button';
 import ROUTES from '@/constants/routes';
-import { SearchParams } from 'next/dist/server/request/search-params';
 import Link from 'next/link';
 
 const questions = [
@@ -38,11 +38,25 @@ interface SearchParams {
 }
 
 const Home = async ({ searchParams }: SearchParams) => {
-  const { query = '' } = await searchParams;
+  const { query = '', filter = '' } = await searchParams;
 
-  const filterQuestions = questions.filter((question) =>
-    question.title.toLocaleLowerCase().includes(query?.toLocaleLowerCase())
-  );
+  const queryLower = query?.toLocaleLowerCase() ?? '';
+  const filterLower = filter?.toLocaleLowerCase() ?? '';
+
+  const filterQuestions = questions.filter((question) => {
+    const matchesQuery =
+      queryLower === '' ||
+      question.title.toLocaleLowerCase().includes(queryLower);
+
+    const matchesFilter =
+      filterLower === '' ||
+      filterLower === 'all' ||
+      question.tags?.some(
+        (tag) => tag.name.toLocaleLowerCase() === filterLower
+      );
+
+    return matchesQuery && matchesFilter;
+  });
 
   return (
     <>
@@ -64,7 +78,7 @@ const Home = async ({ searchParams }: SearchParams) => {
           otherClasses="flex-1"
         />
       </section>
-      {/* HomeFilter */}
+      <HomeFiler />
       <div className="flex flex-col gap-6 mt-10 w-full">
         {filterQuestions.map((question) => (
           <h1 key={question._id}>{question.title}</h1>
