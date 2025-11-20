@@ -1,3 +1,4 @@
+import QuestionCard from '@/components/cards/QuestionCard';
 import HomeFiler from '@/components/filters/HomeFiler';
 import LocalSearch from '@/components/search/LocalSearch';
 import { Button } from '@/components/ui/button';
@@ -12,7 +13,11 @@ const questions = [
       { _id: 1, name: 'nextjs' },
       { _id: 2, name: 'JavaScript' },
     ],
-    author: { _id: '1', name: 'John Doe' },
+    author: {
+      _id: '1',
+      name: 'John Doe',
+      image: 'https://cdn-icons-png.flaticon.com/512/6858/6858504.png',
+    },
     upvotes: 10,
     answers: 5,
     views: 100,
@@ -25,7 +30,11 @@ const questions = [
       { _id: 3, name: 'react' },
       { _id: 4, name: 'JavaScript' },
     ],
-    author: { _id: '2', name: 'Jane Smith' },
+    author: {
+      _id: '2',
+      name: 'Jane Smith',
+      image: 'https://cdn-icons-png.flaticon.com/512/6858/6858504.png',
+    },
     upvotes: 20,
     answers: 8,
     views: 200,
@@ -81,7 +90,7 @@ const Home = async ({ searchParams }: SearchParams) => {
       <HomeFiler />
       <div className="flex flex-col gap-6 mt-10 w-full">
         {filterQuestions.map((question) => (
-          <h1 key={question._id}>{question.title}</h1>
+          <QuestionCard key={question._id} question={question} />
         ))}
       </div>
     </>
