@@ -16,7 +16,6 @@ const SocialAuthForm = () => {
         redirectTo: ROUTES.HOME,
       });
     } catch (error) {
-      console.log(error);
       toast.error('Sign-in Failed', {
         position: 'top-right',
         richColors: true,
